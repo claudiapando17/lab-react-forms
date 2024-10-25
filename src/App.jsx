@@ -15,10 +15,23 @@ function App() {
   const [email, setEmail] = useState("");
   const [program, setProgram] = useState("");
   const [graduationYear, setGraduationYear] = useState("");
-  const [graduated, setGraduated] = useState("");
+  const [graduated, setGraduated] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+const newStudent = {
+  fullName,
+  email,
+  phone,
+  program,
+  image,
+  graduationYear,
+  graduated,
+};
+
+setStudents((prevStudents)=> [newStudent, ...prevStudents]);
+
 
     setFullName("");
     setImage("");
@@ -26,7 +39,7 @@ function App() {
     setEmail("");
     setProgram("");
     setGraduationYear("");
-    setGraduated("");
+    setGraduated(false);
   };
 
 
@@ -40,7 +53,7 @@ function App() {
           <div>
             <label>
               Full Name
-              <input name={fullName}
+              <input name="fullName"
                 type="text"
                 placeholder="Full Name"
                 value={fullName}
@@ -50,7 +63,7 @@ function App() {
 
             <label>
               Profile Image
-              <input name={image}
+              <input name="image"
                 type="url"
                 placeholder="Profile Image"
                 value={image}
@@ -60,7 +73,7 @@ function App() {
 
             <label>
               Phone
-              <input name={phone}
+              <input name="phone"
                 type="tel"
                 placeholder="Phone"
                 value={phone}
@@ -70,7 +83,7 @@ function App() {
 
             <label>
               Email
-              <input name={email}
+              <input name="email"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -82,7 +95,7 @@ function App() {
           <div>
             <label>
               Program
-              <select name={program} value={program} onChange={(e) => { setProgram(e.target.value) }}>
+              <select name="program" value={program} onChange={(e) => { setProgram(e.target.value) }}>
                 <option value="">-- None --</option>
                 <option value="Web Dev">Web Dev</option>
                 <option value="UXUI">UXUI</option>
@@ -94,7 +107,7 @@ function App() {
             <label>
               Graduation Year
               <input
-                name={graduationYear}
+                name="graduationYear"
                 type="number"
                 placeholder="Graduation Year"
                 minLength={4}
@@ -108,7 +121,7 @@ function App() {
 
             <label>
               Graduated
-              <input name={graduated}
+              <input name="graduated"
                 type="checkbox"
                 value={graduated}
                 onChange={(e) => { setGraduated(e.target.checked) }} />
